@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var models = require("../models");
 
-/* GET home page. */
+/* GET robots listing. */
 router.get('/', function(req, res, next) {
-  console.log("creating dummy data!");
-  res.send("itworks!");
+  models.Robot.findAll().then((robots) => {
+    res.json(robots);
+  })
+
 });
 
 module.exports = router;
