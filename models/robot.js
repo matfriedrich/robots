@@ -10,9 +10,13 @@ module.exports = (sequelize, DataTypes) => {
         avatar: {type: DataTypes.STRING(1024), validate: {isUrl: true}}
     });
 
-    // Robot.associate = function (models) {
-    //     models.User.hasMany(models.Task);
-    // };
+
+    Robot.associate = function (models) {
+        models.Robot.belongsTo(models.Team, {
+            onDelete: "CASCADE",
+            foreignKey: {allowNull: false}
+        });
+    };
 
     return Robot;
 };
