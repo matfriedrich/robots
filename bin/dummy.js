@@ -8,7 +8,7 @@ var Danceoff = require("../models").Danceoff;
 module.exports = function createDummyData() {
     // only create new dummy data if database is empty
     Robot.count().then((count) => {
-        if (count == 0) {
+        if (count === 0) {
             _createDummyData();
         }
     });
