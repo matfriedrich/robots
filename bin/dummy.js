@@ -3,22 +3,23 @@
 * */
 var Robot = require("../models").Robot;
 var Team = require("../models").Team;
+var Danceoff = require("../models").Danceoff;
 
 module.exports = function createDummyData() {
     // only create new dummy data if database is empty
-     Robot.count().then((count) => {
-         if(count == 0) {
-             _createDummyData();
-         }
-     });
+    Robot.count().then((count) => {
+        if (count == 0) {
+            _createDummyData();
+        }
+    });
 };
 
 
 function _createDummyData() {
     console.info("creating dummy data.");
-    Team.bulkCreate(dummyTeams).then(() => {
-        Robot.bulkCreate(dummyRobots);
-    });
+    Team.bulkCreate(dummyTeams);
+    Robot.bulkCreate(dummyRobots);
+    Danceoff.bulkCreate(dummyDanceoffs);
 }
 
 var dummyTeams = [
@@ -27,8 +28,19 @@ var dummyTeams = [
 ];
 
 var dummyRobots = [
-    {name: "Jumbotron", TeamId: 2},
-    {name: "Flexomatic", TeamId: 2},
-    {name: "Crushinator", TeamId: 2},
-    {name: "Bender", TeamId: 1}
+    {id: 1, name: "Jumbotron", TeamId: 2},
+    {id: 2, name: "Flexomatic", TeamId: 2},
+    {id: 3, name: "Crushinator", TeamId: 2},
+    {id: 4, name: "Bender", TeamId: 2},
+    {id: 5, name: "Roberto", TeamId: 2},
+    {id: 6, name: "Arnold", TeamId: 1},
+    {id: 7, name: "Hal", TeamId: 1},
+    {id: 8, name: "Wadsworth", TeamId: 1},
+    {id: 9, name: "Wall-e", TeamId: 1},
+    {id: 10, name: "Serenity", TeamId: 1},
+];
+
+var dummyDanceoffs = [
+    {contestantOneId: 1, contestantTwoId: 6, winnerId: 1},
+    {contestantOneId: 2, contestantTwoId: 7, winnerId: 7},
 ];
