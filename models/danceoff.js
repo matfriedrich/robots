@@ -9,24 +9,37 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         sequelize,
         validate: {
-            sameTeam(next) {
+            /*
+            * multiple validators that all need contestant(Robot) data
+            * aggregated in a single validator to reduce individual queries
+            * */
+            contestantCheck(next) {
                 var Robot = require("../models").Robot;
                 var contestantOne;
                 var contestantTwo;
-                return Robot.findOne({where: {id: this.contestantOneId}})
+                Robot.findOne({where: {id: this.contestantOneId}})
                     .then(result => {
                         contestantOne = result;
                         Robot.findOne({where: {id: this.contestantTwoId}}).then(result => {
                             contestantTwo = result;
-                            console.log("cont1: " + contestantOne.id);
-                            console.log("cont2: " + contestantTwo.id);
+
+                            /*
+                            * check whether the two opponents belong to the same team
+                            * */
                             if (contestantOne.TeamId === contestantTwo.TeamId) {
                                 next('Contestants can not be of the same team.');
+                            }
+
+                            /*
+                            * check if either of the contestants is out of order
+                            * */
+                            if (contestantOne.outOfOrder || contestantTwo.outOfOrder) {
+                                next("One or more contestants are out of order");
                             }
                             next();
                         });
                     });
-            }
+            },
         }
     });
 

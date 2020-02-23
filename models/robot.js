@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name: DataTypes.STRING,
         powermove: DataTypes.STRING,
-        experience: DataTypes.INTEGER,
+        experience: {type: DataTypes.INTEGER, defaultValue: 0},
         outOfOrder: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false},
         avatar: {type: DataTypes.STRING(1024), validate: {isUrl: true}}
     });
