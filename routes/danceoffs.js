@@ -46,7 +46,8 @@ router.put('/', function (req, res) {
         })
         .catch(err => {
             console.log(err);
-            res.json({error: err});
+            res.status(422);
+            res.json({error: err.message});
         });
 });
 
