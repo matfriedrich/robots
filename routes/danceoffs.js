@@ -4,8 +4,10 @@ var Danceoff = require("../models").Danceoff;
 var Robot = require("../models").Robot;
 var Team = require("../models").Team;
 
-/* GET danceoffs listing. */
-router.get('/', function (req, res, next) {
+/*
+*  GET danceoffs listing
+* */
+router.get('/', function (req, res) {
     Danceoff.findAll(
         {
             nest: false,
@@ -17,10 +19,10 @@ router.get('/', function (req, res, next) {
                         {model: Team, attributes: ['name', 'id']}
                 },
                 {
-                    model: Robot, as: 'contestant_one', attributes: ['name']
+                    model: Robot, as: 'contestantOne', attributes: ['name']
                 },
                 {
-                    model: Robot, as: 'contestant_two', attributes: ['name']
+                    model: Robot, as: 'contestantTwo', attributes: ['name']
                 }
             ]
             , order: [
@@ -31,6 +33,21 @@ router.get('/', function (req, res, next) {
         .then((danceoffs) => {
             res.json(danceoffs);
         })
+});
+
+
+/*
+* insert new danceoff result
+* */
+router.put('/', function (req, res) {
+    Danceoff.create(req.body)
+        .then(danceoff => {
+            res.json(danceoff);
+        })
+        .catch(err => {
+            console.log(err);
+            res.json({error: err});
+        });
 });
 
 
