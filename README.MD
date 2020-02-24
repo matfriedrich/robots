@@ -51,7 +51,7 @@ This path provides a GET endpoint for retrieving all danceoff results and a PUT 
        ```
          {
            "username": <username>,
-           "password": <passwordd>
+           "password": <password>
          }
        ```
       Returns a JWT token for authenticating.
