@@ -18,8 +18,9 @@ module.exports = function createDummyData() {
 function _createDummyData() {
     console.info("creating dummy data.");
     Team.bulkCreate(dummyTeams);
-    Robot.bulkCreate(dummyRobots);
-    Danceoff.bulkCreate(dummyDanceoffs);
+    Robot.bulkCreate(dummyRobots).then(() => {
+        Danceoff.bulkCreate(dummyDanceoffs);
+    });
 }
 
 var dummyTeams = [
