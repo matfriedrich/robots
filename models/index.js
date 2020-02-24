@@ -4,7 +4,6 @@
 * File created via sequelize CLI
 * */
 
-
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');

@@ -1,11 +1,12 @@
 var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser')
 var logger = require('morgan');
 
+var passport = require('./bin/authentication');
+
 var loginRouter = require('./routes/login');
-var indexRouter = require('./routes/index');
 var robotsRouter = require('./routes/robots');
 var danceoffsRouter = require('./routes/danceoffs');
 
@@ -17,7 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 
-app.use('/', indexRouter);
 app.use('/robots', robotsRouter);
 app.use('/danceoffs', danceoffsRouter);
 app.use('/login', loginRouter);
@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res) {
+app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
