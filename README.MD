@@ -13,7 +13,6 @@ The backend was built as a NodeJs/Express application with a PostgreSQL database
  For the Node server, a NPM run script exists - named 'start' exists. This script will start the app in development mode -  
  using Nodemon for automatically restarting on source changes and with the --inspect flag set for debugging. Since this 
  will never run in production, there is no production ready run script. 
- ADMIN_USER=admin;ADMIN_PW=admin;JWT_SECRET=keyboardcat
  ### Environment
  The following environment variables need to be set before running:
  *  ADMIN_USER: username used for aquiring JWT token
@@ -23,6 +22,7 @@ The backend was built as a NodeJs/Express application with a PostgreSQL database
 ## Endpoints
 A REST interface with the following endpoints was implemented as described in the challenge. Additionally, a /login 
 endpoint was created for aquiring a JWT token which is then used to access the protected PUT /danceoffs endpoint.
+
 The provided [Postman Collection](https://github.com/matfriedrich/robots/blob/master/robots.postman_collection.json) 
 can be used for testing the application. Keep in mind that the set authentication parameters may need to be replaced. 
 ### /robots
