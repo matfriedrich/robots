@@ -48,7 +48,7 @@ This path provides a GET endpoint for retrieving all danceoff results and a PUT 
     All three fields are required, contestants must not belong to the same team and must not be out of order. 
 
 ### /login
-   *  **POST** /login used to aquire a JWT token for authentication when using the protected PUT /danceoffs endpoint. 
+   *  **POST** /login used to acquire a JWT token for authentication when using the protected PUT /danceoffs endpoint. 
    username and password must match those set in the environment variables on start-up and be put in the body of the 
    request:
        ```
@@ -58,3 +58,22 @@ This path provides a GET endpoint for retrieving all danceoff results and a PUT 
          }
        ```
       Returns a JWT token for authenticating.
+      
+      
+# Proposed frontend
+The frontend i would implement as an Angular application, probably with support of a CSS framework such Material or 
+Bootstrap, since Angular works great in combination with a Node REST backend. I would then have written the backend in 
+Typescript also, to have the same standard across the stack. 
+I would create a single page application, with a tabbed navigation. The default tab shows the danceoff results and 
+provides a button to create a new result which launches a full screen view for putting in data. The second tag
+would simply list all robots. 
+
+From the Angular site: since it is a small application, I would only create one 'home' module. A danceoffList 
+component for the danceoffs list, a danceoffCreate component for creation and a robotList component for the robots list.
+
+A single service for all REST call(again, since it's only a small app, i wouldn't split it into multiple services for 
+robots, danceoffs).
+
+A seperate authentication service for handling login calls. 
+
+An interceptor for attaching the JWT. 
