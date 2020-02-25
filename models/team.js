@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    var Team = sequelize.define('Team', {
+    const Team = sequelize.define('Team', {
         id: {type: DataTypes.INTEGER, primaryKey: true},
         name: DataTypes.STRING
     });

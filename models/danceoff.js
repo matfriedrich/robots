@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    var Danceoff = sequelize.define('Danceoff', {
+    const Danceoff = sequelize.define('Danceoff', {
         id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         contestantOneId: {type: DataTypes.INTEGER, allowNull: false},
         contestantTwoId: {type: DataTypes.INTEGER, allowNull: false},
@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
             * aggregated in a single validator to reduce individual queries
             * */
             contestantCheck(next) {
-                var Robot = require("../models").Robot;
-                var contestantOne;
-                var contestantTwo;
+                const Robot = require("../models").Robot;
+                let contestantOne;
+                let contestantTwo;
                 Robot.findOne({where: {id: this.contestantOneId}})
                     .then(result => {
                         contestantOne = result;

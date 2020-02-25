@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    var Robot = sequelize.define('Robot', {
+    const Robot = sequelize.define('Robot', {
         id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name: DataTypes.STRING,
         powermove: DataTypes.STRING,

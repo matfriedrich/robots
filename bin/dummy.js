@@ -1,6 +1,6 @@
-var Robot = require("../models").Robot;
-var Team = require("../models").Team;
-var Danceoff = require("../models").Danceoff;
+const Robot = require("../models").Robot;
+const Team = require("../models").Team;
+const Danceoff = require("../models").Danceoff;
 
 module.exports = function createDummyData() {
     // only create new dummy data if database is empty
@@ -19,12 +19,12 @@ function _createDummyData() {
     });
 }
 
-var dummyTeams = [
+const dummyTeams = [
     {id: 1, name: "The Gracefull Grapes"},
     {id: 2, name: "The Agile Apples"}
 ];
 
-var dummyRobots = [
+const dummyRobots = [
     {id: 1, name: "Jumbotron", TeamId: 2},
     {id: 2, name: "Flexomatic", TeamId: 2},
     {id: 3, name: "Crushinator", TeamId: 2},
@@ -37,7 +37,7 @@ var dummyRobots = [
     {id: 10, name: "Serenity", TeamId: 1},
 ];
 
-var dummyDanceoffs = [
+const dummyDanceoffs = [
     {contestantOneId: 1, contestantTwoId: 6, winnerId: 1},
     {contestantOneId: 2, contestantTwoId: 7, winnerId: 7},
 ];

@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var Danceoff = require("../models").Danceoff;
-var Robot = require("../models").Robot;
-var Team = require("../models").Team;
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const Danceoff = require("../models").Danceoff;
+const Robot = require("../models").Robot;
+const Team = require("../models").Team;
 
 /*
 *  GET danceoffs listing
