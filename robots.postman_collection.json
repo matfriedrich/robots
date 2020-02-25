@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "8004ba67-4bd9-4035-aa0c-671294eb392a",
+		"name": "robots",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT danceoff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTU4MjU3MTEwMn0.M1OOwH5eGuvREuB9XAV8RSFaxF0qYnYDbeCPMJTxBuA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"contestantOneId\": 2,\n\t\"contestantTwoId\": 7,\n\t\"winnerId\": 2\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/danceoffs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"danceoffs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Danceoffs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/danceoffs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"danceoffs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/danceoffs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"danceoffs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all Robots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/robots",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"robots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET single Robot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/robots/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"robots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

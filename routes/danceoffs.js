@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 var Danceoff = require("../models").Danceoff;
 var Robot = require("../models").Robot;
 var Team = require("../models").Team;
@@ -39,7 +40,7 @@ router.get('/', function (req, res) {
 /*
 * insert new danceoff result
 * */
-router.put('/', function (req, res) {
+router.put('/', passport.authenticate('jwt', {session: false}), function (req, res) {
     Danceoff.create(req.body)
         .then(danceoff => {
             res.json(danceoff);
@@ -50,6 +51,8 @@ router.put('/', function (req, res) {
             res.json({error: err.message});
         });
 });
+
+
 
 
 module.exports = router;

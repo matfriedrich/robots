@@ -1,6 +1,3 @@
-/*
-* create dummy data for developing
-* */
 var Robot = require("../models").Robot;
 var Team = require("../models").Team;
 var Danceoff = require("../models").Danceoff;
@@ -13,7 +10,6 @@ module.exports = function createDummyData() {
         }
     });
 };
-
 
 function _createDummyData() {
     console.info("creating dummy data.");
