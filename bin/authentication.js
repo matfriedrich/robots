@@ -4,6 +4,9 @@ const passportJWT = require("passport-jwt");
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 
+/*
+* local strategy used to obtain JWT token in /login
+*/
 passport.use(new LocalStrategy(
     function (username, password, done) {
         if (username === process.env['ADMIN_USER'] && password === process.env['ADMIN_PW']) {
@@ -14,6 +17,9 @@ passport.use(new LocalStrategy(
     }
 ));
 
+/*
+* JWT strategy, used to authenticate when consuming the /danceoffs endpoint
+*/
 passport.use(new JWTStrategy({
         jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
         secretOrKey: process.env['JWT_SECRET']

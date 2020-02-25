@@ -10,6 +10,9 @@ router.get('/', function (req, res) {
 
 });
 
+/*
+* get specific robot by ID
+*/
 router.get('/:robotId', function (req, res) {
     models.Robot.findAll({where: {id: req.params['robotId']}}).then((robots) => {
         if (robots.length === 0) {

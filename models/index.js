@@ -2,6 +2,7 @@
 
 /*
 * File created via sequelize CLI
+* Collects all models from within then 'models' directory and syncs them with the database
 * */
 
 const fs = require('fs');
