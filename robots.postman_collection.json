@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8004ba67-4bd9-4035-aa0c-671294eb392a",
+		"_postman_id": "c6ea9f93-4fbe-4f78-bc33-6a63392882e8",
 		"name": "robots",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -65,16 +65,32 @@
 		{
 			"name": "Login",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/danceoffs",
+					"raw": "localhost:3000/login",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"danceoffs"
+						"login"
 					]
 				}
 			},
@@ -117,5 +133,6 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
