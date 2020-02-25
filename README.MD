@@ -47,6 +47,7 @@ This path provides a GET endpoint for retrieving all danceoff results and a PUT 
     ```
     All three fields are required, contestants must not belong to the same team and must not be out of order. 
 
+### /login
    *  **POST** /login used to aquire a JWT token for authentication when using the protected PUT /danceoffs endpoint. 
    username and password must match those set in the environment variables on start-up and be put in the body of the 
    request:
